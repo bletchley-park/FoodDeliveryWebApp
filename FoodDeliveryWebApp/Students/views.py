@@ -9,3 +9,6 @@ class Index(View):
 class About(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'Students/about.html')
+
+class Order(View):
+    pass
