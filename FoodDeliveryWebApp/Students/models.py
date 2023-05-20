@@ -39,7 +39,7 @@ class Category(models.Model):
 class OrderModel(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     price = models.DecimalField(max_digits=7,decimal_places=2)
-    StudentUser = models.ForeignKey('StudentUser', on_delete=models.CASCADE)
+    student = models.ForeignKey('StudentUser', on_delete=models.CASCADE)
     restaraunt = models.ForeignKey('Restaraunt', on_delete=models.CASCADE)
     items = models.ManyToManyField('MenuItem',related_name='order',blank = True) 
 
