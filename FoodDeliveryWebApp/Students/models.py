@@ -45,4 +45,4 @@ class OrderModel(models.Model):
     items = models.ManyToManyField('MenuItem',related_name='order',blank = True) 
 
     def __str__(self):
-        return f'Order: {self.created_on.strftime("%b %d %I: %M %p")}'
+        return f'Order {self.id} : From {self.restaraunt.restaraunt_name} {self.created_on.strftime("%b %d %I: %M %p")}'
