@@ -9,13 +9,16 @@
     </div>
     <div class = "row justify-content-center mt-1">
         <div class = "col-md-10 col-sm-12 offset-md-1 p-4 text-center">
-            {% for order in orders %}
-                <h5>{{ order }}</h5>
-            {% endfor %}
-
-            <br>
-            <hr>
-            <h6>The total price is {{ totalprice }}</h6>
+            {% if orders %}
+                {% for order in orders %}
+                    <h5>{{ order }}</h5>
+                    <br>
+                    <hr>
+                {% endfor %}
+                <h6>The total price is {{ totalprice }}</h6>
+            {% else %}
+                <h5>Cart is empty</h5>
+            {% endif %}
         </div>
     </div>
 </div>
