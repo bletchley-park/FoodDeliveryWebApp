@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from Students.views import Index, About, StudentOrdersView
+from Students.views import Index, About, StudentOrdersView, RestaurantMenuView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Index.as_view(), name='index'),
     path('about/', About.as_view(), name='about'),
-    path('students/<int:student_id>/orders/', StudentOrdersView.as_view(), name='orders')
+    path('students/<int:student_id>/orders/', StudentOrdersView.as_view(), name='orders'),
+    path('menu/', RestaurantMenuView.as_view(), name='menu')
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

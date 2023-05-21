@@ -1,0 +1,27 @@
+{% extends 'Students/base.html' %}
+
+{% block content %}
+<div class="container mb-5">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8 col-sm-12 offset-md-1 p-4 text-center">
+            <h1><strong>Menu Items</strong></h1>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-1">
+        <div class="col-md-10 col-sm-12 offset-md-1 p-4 text-center">
+            <h3>Select a Restaurant</h3>
+            <form method="post" action="{% url 'menu' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <select class="form-control" name="restaurant">
+                        {% for restaurant in restaurants %}
+                            <option value="{{ restaurant.id }}">{{ restaurant.restaraunt_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Show Menu</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
